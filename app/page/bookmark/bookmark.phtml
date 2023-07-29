@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+</head>
+
+<body>
+    <header>
+        <div class="row tm-top-nav tm-b-color-10">
+            <div class="col-12">
+                <form action="?page=bookmark" method="post">
+                    <a href="?page=home" class="tm-lnk-0">
+                        <p class="tm-color-0 tm-txt-m tm-txt-flt-c">Bookmark</p>
+                    </a>
+
+                    <input type="text" placeholder="Enter Username" name="search" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0 tm-pd-3">
+
+                    <input type="submit" hidden name="btn_search" value="Search" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0 tm-pd-3 tm-b-color-10 tm-color-0">
+                </form>
+            </div>
+        </div>
+    </header>
+    <article>
+        <div class="row">
+            <div class="col-12">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+            </div>
+        </div>
+        <br>
+        <?php if (empty($_SESSION["bookmark"])) { ?>
+
+            <p class="tm-color-13 tm-txt-s tm-txt-flt-c">Enter username to display bookmark </p>
+
+        <?php }else { ?> <p class="tm-color-13 tm-txt-s tm-txt-flt-c">Username: <b class="tm-color-10"><i><?php echo $_SESSION["bookmark"];?></i></b> </p> <?php } ?>
+        <?php while ($row = mysqli_fetch_array($result)) { ?>
+
+            <div class="row tm-shdw-0">
+                <div class="col-12">
+                    <center>
+                        <?php if (file_exists($config["FS"]  . $row["user_id"] . ".png")) { ?>
+                            <img src="<?php echo $config["FSV"]  . $row["user_id"] . ".png"; ?>" class="tm-img-3 ">
+
+                        <?php } ?>
+                    </center>
+
+                    <p class="tm-color-10 tm-txt-m"><?php echo $row["name"]; ?></p>
+
+                    <p class="tm-color-13 tm-txt-s">Type: <?php echo $row["type"]; ?></p>
+                    <p class="tm-color-13 tm-txt-s">Address: <?php echo $row["address"]; ?></p>
+                    <p class="tm-color-13 tm-txt-s">Contact: <?php echo $row["contact"]; ?></p>
+                    <p class="tm-color-13 tm-txt-s">Description: <?php echo $row["description"]; ?></p>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <form action="?page=bookmark" method="post">
+                                <input type="text" name="id" hidden value="<?php echo $row["id"]; ?>">
+                                <input type="submit" name="btn_view" value="View Map" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0 tm-pd-3 tm-b-color-10 tm-color-0">
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <form action="?page=bookmark" method="post">
+                                <input type="text" name="id" hidden value="<?php echo $row["id"]; ?>">
+                                <input type="submit" name="btn_remove" value="Remove Bookmark" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0 tm-pd-3 tm-b-color-10 tm-color-0">
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+        <?php } ?>
+
+
+
+
+    </article>
+</body>
+
+</html>

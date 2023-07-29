@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+</head>
+
+<body>
+    <header>
+        <div class="row tm-top-nav tm-b-color-10">
+            <div class="col-12">
+                <a href="?page=home" class="tm-lnk-0">
+                    <p class="tm-color-0 tm-txt-m tm-txt-flt-c">Store Finder</p>
+                </a>
+            </div>
+        </div>
+    </header>
+    <article>
+        <form action="?page=login" method="post">
+
+            <div class="row">
+                <div class="col-12">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12">
+
+                    <p class="tm-color-13 tm-txt-s tm-txt-flt-c">Authentication</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                <p class="tm-color-5 tm-txt-s tm-txt-flt-c"><?php echo $message;?></p>
+                    <p class="tm-txt-s tm-color-13">Username</p>
+                    <input type="text" placeholder="Type here" name="username" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="tm-txt-s tm-color-13">Password</p>
+                    <input type="password" placeholder="Type here" name="password" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input type="submit" name="btn_login" value="Log In" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0 tm-pd-3 tm-b-color-10 tm-color-0">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <center>
+                        <a href="?page=register" class="tm-color-13 tm-txt-s tm-lnk-0">Register?</a>
+                    </center>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                </div>
+            </div>
+        </form>
+    </article>
+</body>
+
+</html>

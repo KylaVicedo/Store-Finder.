@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+</head>
+
+<body>
+    <header>
+        <div class="row tm-top-nav tm-b-color-10">
+            <div class="col-12">
+                <a href="?page=logout" class="tm-lnk-0">
+                    <p class="tm-color-0 tm-txt-m tm-txt-flt-c">My Store</p>
+                </a>
+            </div>
+        </div>
+    </header>
+    <article>
+
+        <div class="row">
+            <div class="col-12">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+            </div>
+        </div>
+        <br>
+        <div class="row ">
+
+            <div class="col-12 ">
+                <p class="tm-txt-s tm-color-13">Store Logo</p>
+                <center>
+                    <?php if (file_exists($config["FS"]  . $_SESSION["uid"] . ".png")) { ?>
+                        <img src="<?php echo $config["FSV"]  . $_SESSION["uid"] . ".png"; ?>" class="tm-img-3 ">
+
+                    <?php } ?>
+                    <div class="row">
+                        <div class="col-12">
+                            <form action="?page=my_store" method="post" enctype="multipart/form-data">
+
+                                <input type="file" name="image" class="tm-b-color-1" required />
+                                <br><br>
+                                <input type="submit" value="Upload Image" class="tm-txt-s tm-bdr-0 tm-b-color-10 tm-pd-3 tm-curs-0 tm-color-0 tm-outline-0">
+
+
+                            </form>
+                        </div>
+                    </div>
+                </center>
+            </div>
+
+        </div>
+        <form action="?page=my_store" method="post">
+            <div class="row">
+                <div class="col-12">
+                    <p class="tm-txt-s tm-color-13">Store Name</p>
+                    <input type="text" name="name" value="<?php echo $data["name"]; ?>" required placeholder="Type here" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="tm-txt-s tm-color-13">Store Type</p>
+                    <input type="text" name="type" value="<?php echo $data["type"]; ?>" required placeholder="Type here" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="tm-txt-s tm-color-13">Embed Google Map (Enter Source Link)</p>
+                    <textarea name="map" required placeholder="Type here" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0" cols="30" rows="10"><?php echo $data["map"]; ?></textarea>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="tm-txt-s tm-color-13">Address</p>
+                    <input type="text" name="address" value="<?php echo $data["address"]; ?>" required placeholder="Type here" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="tm-txt-s tm-color-13">Contact</p>
+                    <input type="text" name="contact" value="<?php echo $data["contact"]; ?>" required placeholder="Type here" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="tm-txt-s tm-color-13">Description</p>
+                    <textarea name="description" required placeholder="Type here" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0" cols="30" rows="10"><?php echo $data["description"]; ?></textarea>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="tm-color-13 tm-txt-s"><input type="checkbox" required>Commit </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input type="submit" name="btn_update" value="Update" class="tm-bdr-0 tm-txt-s tm-wd-full tm-outline-0 tm-pd-3 tm-b-color-10 tm-color-0">
+
+                </div>
+            </div>
+        </form>
+    </article>
+</body>
+
+</html>
